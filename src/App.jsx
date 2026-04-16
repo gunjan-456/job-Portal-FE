@@ -3,7 +3,10 @@ import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import Jobs from "./Pages/Jobs";
 import ProtectedRoute from "./Components/ProtectedRoute";
-import Applications from "./Pages/Application";
+import Applications from "./Pages/Application"
+import MyJobs from "./Pages/MyJobs"
+import Applicants from "./Pages/Applicants"
+import CreateJobs from "./Pages/CreateJobs";
 
 function App() {
   return (
@@ -28,6 +31,36 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        <Route
+        path="/my-jobs"
+        element={
+        <ProtectedRoute>
+          <MyJobs />
+        </ProtectedRoute>
+      }
+      />
+
+
+      <Route
+      path="/applicants/:jobId"
+      element={
+      <ProtectedRoute>
+        <Applicants />
+        </ProtectedRoute>
+      }
+      />
+
+
+
+      <Route
+      path="/create-job"
+      element={
+      <ProtectedRoute>
+        <CreateJobs />
+        </ProtectedRoute>
+      }
+      />
 
         
         <Route path="/login" element={<Login />} />

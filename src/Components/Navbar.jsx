@@ -10,7 +10,7 @@ function Navbar() {
   };
 
   return (
-    <div className="flex justify-between items-center px-6 py-4 bg-blue-500 text-white">
+    <div className="flex justify-between items-center px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-500 shadow-lg text-white">
       <h1
         className="font-bold text-lg cursor-pointer"
         onClick={() => navigate("/")}
