@@ -6,10 +6,9 @@ function Jobs() {
   const [jobs, setJobs] = useState([]);
   const navigate = useNavigate();
 
- 
   const role = localStorage.getItem("role");
 
-  
+
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
@@ -26,13 +25,24 @@ function Jobs() {
     }
   };
 
- 
+
   const handleApply = async (jobId) => {
     try {
       await API.post("/application/apply", { jobId });
       alert("Applied successfully");
     } catch (err) {
       alert(err.response?.data?.message || "Apply failed");
+    }
+  };
+
+  
+  const handleDelete = async (jobId) => {
+    try {
+      await API.delete(`/jobs/delete/${jobId}`);
+      alert("Job deleted");
+      fetchJobs();
+    } catch (err) {
+      alert("Delete failed");
     }
   };
 
@@ -53,12 +63,12 @@ function Jobs() {
 
         <div className="flex gap-3">
 
-         
+       
           {role === "recruiter" && (
             <>
               <button
                 onClick={() => navigate("/create-job")}
-                className="bg-yellow-400 text-black px-4 py-1 rounded"
+                className="bg-yellow-400 text-black px-4 py-1 rounded hover:bg-yellow-500"
               >
                 + Create Job
               </button>
@@ -72,7 +82,7 @@ function Jobs() {
             </>
           )}
 
-         
+       
           {role === "user" && (
             <button
               onClick={() => navigate("/applications")}
@@ -117,7 +127,7 @@ function Jobs() {
                   ₹{job.salary}
                 </p>
 
-               
+             
                 {role === "user" && (
                   <button
                     onClick={() => handleApply(job._id)}
@@ -125,6 +135,32 @@ function Jobs() {
                   >
                     Apply
                   </button>
+                )}
+
+              
+                {role === "recruiter" && (
+                  <div className="flex gap-2 mt-4">
+
+                    <button
+                      onClick={() => navigate(`/update-job/${job._id}`)}
+                      className="flex-1 bg-blue-100 text-blue-600 py-1 rounded hover:bg-blue-200"
+                    >
+                      ✏️ Edit
+                    </button>
+
+                    <button
+                      onClick={() => handleDelete(job._id)}
+                      className="flex-1 bg-red-100 text-red-600 py-1 rounded hover:bg-red-200"
+                    >
+                      🗑 Delete
+                    </button>
+
+
+                    
+
+
+
+                  </div>
                 )}
               </div>
             ))}

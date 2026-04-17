@@ -6,7 +6,8 @@ import ProtectedRoute from "./Components/ProtectedRoute";
 import Applications from "./Pages/Application"
 import MyJobs from "./Pages/MyJobs"
 import Applicants from "./Pages/Applicants"
-import CreateJobs from "./Pages/CreateJobs";
+import CreateJobs from "./Pages/CreateJobs"
+import UpdateJob from "./Pages/UpdateJob"
 
 function App() {
   return (
@@ -42,14 +43,16 @@ function App() {
       />
 
 
-      <Route
+      {/* <Route
       path="/applicants/:jobId"
       element={
       <ProtectedRoute>
         <Applicants />
         </ProtectedRoute>
       }
-      />
+      /> */}
+
+      <Route path="/applicants/:id" element={<Applicants />} />
 
 
 
@@ -61,6 +64,16 @@ function App() {
         </ProtectedRoute>
       }
       />
+
+
+      <Route
+      path="/update-job/:id"
+      element={
+      <ProtectedRoute>
+        <UpdateJob />
+      </ProtectedRoute>
+    }
+    />
 
         
         <Route path="/login" element={<Login />} />

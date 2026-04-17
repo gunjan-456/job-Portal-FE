@@ -62,6 +62,15 @@ function CreateJob() {
           onChange={(e) => setData({ ...data, description: e.target.value })}
         />
 
+
+        <input
+        placeholder="Skills (comma separated)"
+        className="border p-2 rounded"
+        onChange={(e) =>
+            setData({ ...data, skills: e.target.value.split(",") })
+            }
+        />
+
         <button
           onClick={handleCreate}
           className="bg-purple-500 text-white py-2 rounded hover:bg-purple-600"
