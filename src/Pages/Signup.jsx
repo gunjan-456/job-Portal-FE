@@ -1,6 +1,6 @@
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import API from "../Utils/api"
 
 function Signup() {
   const [data, setData] = useState({
@@ -14,14 +14,11 @@ function Signup() {
 
   const handleSignup = async () => {
     try {
-      await axios.post(
-        "http://localhost:5000/api/auth/signup",
-        data
-      );
+       await API.post("/auth/signup", data)
 
       alert("Signup successful");
 
-      navigate("/login", { replace: true }); // 👈 redirect to login
+      navigate("/login", { replace: true })
 
     } catch (err) {
       console.error(err.response?.data?.message || err.message);
