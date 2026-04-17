@@ -1,16 +1,49 @@
-# React + Vite
+# 💼 Job Portal (MERN Stack)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack Job Portal application where users can explore jobs, apply for positions, and recruiters can manage job postings.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+### 👤 User
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Signup & Login
+* View all jobs
+* Apply for jobs
+* View applied jobs
 
-## Expanding the ESLint configuration
+### 🧑‍💼 Recruiter
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Create new jobs
+* Update existing jobs
+* Delete jobs
+* View applicants for each job
+
+---
+
+## 🔐 Authentication & Authorization
+
+* JWT-based authentication
+* Role-based access (User / Recruiter)
+* Protected routes
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend:
+
+* React.js
+* Tailwind CSS
+* Axios
+
+### Backend:
+
+* Node.js
+* Express.js
+
+### Database:
+
+* MongoDB
+
